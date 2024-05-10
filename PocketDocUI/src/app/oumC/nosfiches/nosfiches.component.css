@@ -1,0 +1,42 @@
+.btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 5px;
+}
+
+.btn-supprimer {
+  background-color: red;
+  color: white;
+}
+
+.btn-ajouter {
+  background-color: green;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+.hide-modal {
+  display: none;
+}
+
+
+.square-modal .modal-content {
+  width: 90%; /* Adjust content width for padding */
+  height: 90%; /* Adjust content height for padding */
+  overflow-y: auto; /* Add scrollbar when content overflows vertically */
+  padding: 20px; /* Add padding for content */
+}
+
+.square-modal .modal-header,
+.square-modal .modal-footer {
+  padding: 10px 0; /* Adjust header and footer padding */
+  text-align: center; /* Center align header and footer content */
+}
+
+.square-modal .modal-title {
+  margin: 0; /* Remove margin for title */
+}

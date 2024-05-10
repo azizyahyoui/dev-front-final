@@ -1,0 +1,26 @@
+<head> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+</head>    
+
+<button mat-icon-button class="close-button" (click)="closeDialog()">
+  <mat-icon>close</mat-icon>
+</button>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 justify-content-center align-items-center">
+          <div id="maCarte"></div>
+      </div>
+  </div>
+</div>
+
+<div class="row justify-content-center align-items-center open-button-container">
+  <div class="col-md-6">
+      <button mat-raised-button class="open-button" (click)="openGoogleMaps()">Open Google Maps</button>
+  </div>
+  <div class="col-md-6">
+    <mat-checkbox [(ngModel)]="isCheckboxChecked" (change)="sendCanvasData()">Send Map Image</mat-checkbox>
+  </div>
+</div>

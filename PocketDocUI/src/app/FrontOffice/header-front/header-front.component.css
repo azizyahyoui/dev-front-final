@@ -1,0 +1,23 @@
+.profile-image {
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Ajuste la taille de l'image pour qu'elle remplisse entièrement le conteneur */
+}
+/* Style pour le conteneur de l'image */
+.profile-image-wrapper {
+    position: absolute; /* Position absolue par rapport au conteneur parent */
+    right: 0; /* Aligner l'image à droite */
+    top: 50%; /* Aligner verticalement au milieu */
+    transform: translateY(-50%); /* Ajuster verticalement pour centrer */
+    margin-right: 10px; /* Ajouter une marge à droite pour l'espace entre l'image et les liens de navigation */
+}
+.smaller-button {
+    font-size: 15px;
+    padding: 3px 5px;
+    top: 50%;
+    margin-right: 10px;
+    
+    
+  }
+

@@ -1,0 +1,28 @@
+.table-striped td {
+  padding: 1px; /* Espacement à l'intérieur des cellules */
+}
+/* Pour permettre le retour à la ligne du contenu des colonnes */
+.table-striped th,
+.table-striped td {
+    word-wrap: break-word;
+}
+
+.table-container {
+  max-height: 800px; /* Hauteur maximale de la table */
+  overflow-y: auto; /* Activation du défilement vertical si nécessaire */
+}
+
+
+.table-container {
+  overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+}
+
+.table {
+  table-layout: fixed; /* Fixe la largeur des colonnes */
+  width: 100%; /* La table prendra 100% de la largeur de son conteneur */
+}
+
+.mat-paginator {
+  /* Ajoutez des styles supplémentaires au paginator si nécessaire */
+  margin-top: 20px; /* Ajustez la marge du paginator en fonction de votre mise en page */
+}

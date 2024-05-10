@@ -1,0 +1,11 @@
+.delete-button:hover {
+    transform: scale(1.1); /* Agrandir le bouton de 10% au survol */
+  }
+  .update-button:hover{
+    transform: scale(1.1);
+  }
+  .modal-content {
+    max-height: 80vh; /* Hauteur maximale de la modal */
+    overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+  }
+  

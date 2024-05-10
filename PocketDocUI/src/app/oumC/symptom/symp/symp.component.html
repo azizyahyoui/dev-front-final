@@ -1,0 +1,116 @@
+<head>
+  <style>
+      /* Animation de défilement horizontal pour l'arrière-plan */
+      @keyframes scroll {
+          from {
+              background-position: 0 0;
+          }
+          to {
+              background-position: 100% 0;
+          }
+      }
+     
+
+/* Rendre le formulaire plus transparent */
+.card {
+  opacity: 0.9; /* Opacité réglée sur 0.9 pour un effet de transparence */
+}
+
+      /* Appliquer l'animation à l'arrière-plan */
+      body {
+          animation: scroll 30s linear infinite;
+          background: url('/assets/img/home.jpg') repeat-x; /* Remplacez 'home.jpg' par le nom de votre image */
+          background-size: auto 80%; /* Réduire la taille de l'image d'arrière-plan */
+          margin: 0; /* Réinitialiser la marge par défaut */
+          padding: 0; /* Réinitialiser le rembourrage par défaut */
+          font-family: Arial, sans-serif; /* Utiliser une police de caractères générique */
+          height: 95vh; /* Réduire légèrement la taille du body pour laisser un petit espace en bas */
+      }
+
+      /* Styles supplémentaires... */
+  </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header bg-danger text-white">
+            <h3 class="text-center mb-0">Add a Symptom</h3>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-danger" role="alert">
+              <strong><i class="fas fa-exclamation-triangle"></i> Urgent:</strong> If you feel uncomfortable, please contact your doctor immediately.
+            </div>
+            <form [formGroup]="symptomForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="type">Type:</label>
+                <select class="form-control" id="type" formControlName="type" required>
+                  <option value="">Select Type</option>
+                  <option value="PSYCHOLOGICAL_PAIN">Psychological Pain</option>
+                  <option value="ORGANICAL_PAIN">Organical Pain</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="severity">Severity:</label>
+                <select class="form-control" id="severity" formControlName="severity" required>
+                  <option value="">Select Severity</option>
+                  <option value="HIGH">High</option>
+                  <option value="MODERATE">Moderate</option>
+                  <option value="WEAK">Weak</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <small class="text-muted">Please describe your pain</small>
+                <textarea class="form-control" id="description" formControlName="description" required></textarea>
+                <small *ngIf="symptomForm.get('description')?.invalid && (symptomForm.get('description')?.dirty || symptomForm.get('description')?.touched)" class="text-danger">
+                    <span *ngIf="symptomForm.get('description')?.errors?.['required']">Description is required</span>
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <small class="text-muted">Please tell us where the pain is</small>
+                <input type="text" class="form-control" id="location" formControlName="location" required>
+                <small *ngIf="symptomForm.get('location')?.invalid && (symptomForm.get('location')?.dirty || symptomForm.get('location')?.touched)" class="text-danger">
+                    <span *ngIf="symptomForm.get('location')?.errors?.['required']">Location is required</span>
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="duration">Duration (in hours):</label>
+                <small class="text-muted">Please tell us the number of hours that the pain lasted</small>
+                <input type="number" class="form-control" id="duration" formControlName="duration" required>
+                <small *ngIf="symptomForm.get('duration')?.invalid && (symptomForm.get('duration')?.dirty || symptomForm.get('duration')?.touched)" class="text-danger">
+                    <span *ngIf="symptomForm.get('duration')?.errors?.['required']">Duration is required</span>
+                    <span *ngIf="symptomForm.get('duration')?.errors?.['pattern']">Please enter a valid number</span>
+                </small>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="triggers">Triggers:</label>
+                <small class="text-muted">What are the triggers that start your pain?</small>
+                <input type="text" class="form-control" id="triggers" formControlName="triggers" required>
+                <small *ngIf="symptomForm.get('triggers')?.invalid && (symptomForm.get('triggers')?.dirty || symptomForm.get('triggers')?.touched)" class="text-danger">
+                    <span *ngIf="symptomForm.get('triggers')?.errors?.['required']">Triggers is required</span>
+                </small>
+            </div>
+            
+              <!-- Section to display success or error messages -->
+              <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                {{ successMessage }}
+              </div>
+              <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+              <button type="submit" class="btn btn-danger btn-block">Add Symptom</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> 

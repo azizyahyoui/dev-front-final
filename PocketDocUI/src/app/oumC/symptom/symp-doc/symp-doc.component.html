@@ -1,0 +1,66 @@
+<head>
+  <style>
+      /* Animation de défilement horizontal pour l'arrière-plan */
+      @keyframes scroll {
+          from {
+              background-position: 0 0;
+          }
+          to {
+              background-position: 100% 0;
+          }
+      }
+
+      /* Appliquer l'animation à l'arrière-plan */
+      body {
+          animation: scroll 30s linear infinite;
+          background: url('/assets/img/home.jpg') repeat-x; /* Remplacez 'home.jpg' par le nom de votre image */
+          background-size: auto 80%; /* Réduire la taille de l'image d'arrière-plan */
+          margin: 0; /* Réinitialiser la marge par défaut */
+          padding: 0; /* Réinitialiser le rembourrage par défaut */
+          font-family: Arial, sans-serif; /* Utiliser une police de caractères générique */
+          height: 95vh; /* Réduire légèrement la taille du body pour laisser un petit espace en bas */
+      }
+
+
+ /* Réduire la taille du container et le rendre transparent */
+ .container {
+          
+          margin: 0 auto; /* Centrer le container horizontalement */
+          opacity: 0.8; /* Définir la transparence */
+      }
+
+      /* Styles supplémentaires... */
+  </style>
+</head>
+
+
+<body>
+<div class="container">
+  <div *ngIf="symptomData; else noSymptoms" class="symptoms-container">
+    <div class="symptom" *ngFor="let keyValuePair of symptomData">
+      <div class="header">
+        <h3>Username: {{ keyValuePair[1] }}</h3> <!-- Affichage de l'ID de l'utilisateur -->
+      </div>
+      <div class="details">
+        <!-- Utilisation de keyValuePair[0] pour accéder à l'objet symptom -->
+        <p><strong>Type:</strong> {{ keyValuePair[0].type }}</p>
+        
+        <p><strong>Date:</strong> {{ keyValuePair[0].date }}</p>
+        <p><strong>Severity:</strong> {{ keyValuePair[0].severity }}</p>
+        <p><strong>Description:</strong> {{ keyValuePair[0].description }}</p>
+        <p><strong>Location:</strong> {{ keyValuePair[0].location }}</p>
+        <p><strong>Duration:</strong> {{ keyValuePair[0].duration }}</p>
+        <p><strong>Triggers:</strong> {{ keyValuePair[0].triggers }}</p>
+        
+        <!-- Utilisation de keyValuePair[1] pour accéder à la chaîne "ooooooo oooooooooooo" -->
+        
+      </div>
+    </div>
+  </div>
+  <ng-template #noSymptoms>
+    <div class="no-symptoms">
+      <p>No symptoms found for this user.</p>
+    </div>
+  </ng-template>
+</div>
+</body>

@@ -1,0 +1,36 @@
+.custom-card {
+    margin-bottom: 20px; /* Espacement entre les cartes */
+    background-color: #ffffff; /* Couleur de fond */
+    border-radius: 8px; /* Bordures arrondies */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    height: 350px; /* Hauteur fixe pour toutes les cartes */
+    overflow: hidden; /* Masquer le contenu qui dépasse de la carte */
+    display: flex; /* Utiliser Flexbox pour aligner le contenu verticalement */
+    flex-direction: column; /* Aligner le contenu en colonne */
+  }
+  
+  .custom-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Effet d'ombre supplémentaire au survol */
+  }
+  
+  .custom-card-title {
+    font-size: 1.2em; /* Taille de la police du titre */
+    color: #333333; /* Couleur du texte du titre */
+  }
+  
+  .custom-card-text {
+    font-size: 1em; /* Taille de la police du texte */
+    color: #666666; /* Couleur du texte */
+    flex-grow: 1; /* Permettre au texte de s'étendre pour remplir l'espace disponible */
+  }
+  
+  .delete-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* Espacement entre le bouton et le contenu de la carte */
+  }
+  
+  .delete-button {
+    font-size: 2rem; /* Taille du bouton */
+  }
+  

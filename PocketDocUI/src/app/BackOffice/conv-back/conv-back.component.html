@@ -1,0 +1,108 @@
+<h1>Conventions</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date Début</th>
+      <th>Date Fin</th>
+      <th>Description</th>
+      <th>CIN de partenaire</th>
+      <th>Réduction Frais Consultation</th>
+      <th>Services Inclus</th>
+      <th>Conditions Résiliation</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let convention of conventions">
+      <td>{{ convention['id'] }}</td>
+      <td>{{ convention['date_deb'] }}</td>
+      <td>{{ convention['date_fin'] }}</td>
+      <td>{{ convention['description'] }}</td>
+      <td>{{ convention['cin'] }}</td>
+      <td>{{ convention['pourcentage_reduc'] }}</td>
+      <td>{{ convention['services_inclus'] }}</td>
+      <td>{{ convention['condition_resi'] }}</td>
+
+      <td>
+        <button (click)="supprimerConvention(convention.id)" class="btn btn-danger delete-button">Supprimer</button>
+      </td>
+      <td>
+        <button (click)="openUpdateModal(convention['id'])" class="btn btn-primary update-button">Mettre à Jour</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal pour mettre à jour la convention -->
+<div class="modal" id="updateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Mettre à Jour la Convention</h4>
+        <button type="button" class="btn-close" (click)="closeUpdateModal()" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulaire pour mettre à jour la convention -->
+        <form [formGroup]="conventionForm">
+         <div class="mb-3">
+            <label for="dateDebut" class="form-label">Date Début</label>
+            <input type="text" class="form-control" id="dateDebut" formControlName="dateDebut">
+          </div>
+          <div class="mb-3">
+            <label for="dateFin" class="form-label">Date Fin</label>
+            <input type="text" class="form-control" id="dateFin" formControlName="dateFin">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" formControlName="description">
+          </div>
+          <div class="form-group">
+            <label class="add-convention-label">Réduction des frais de consultation:</label>
+            <select id="reductionFraisConsultation" formControlName="reductionFraisConsultation" class="add-convention-input">
+              <option value="" selected>Sélectionner une réduction</option>
+              <option value="0.15">15%</option>
+              <option value="0.25">25%</option>
+              <option value="0.50">50%</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="cin" class="form-label">CIN</label>
+            <input type="text" class="form-control" id="cin" formControlName="cin">
+          </div>
+
+          <!-- Services Inclus -->
+          <div *ngIf="conventionForm.get('servicesInclus')?.value">
+            <div formArrayName="servicesInclus">
+              <div *ngFor="let service of conventionForm.get('servicesInclus')?.value; let i=index" class="form-group">
+                <label for="serviceInclus{{i}}">Service Inclus {{i+1}}</label>
+                <input type="text" class="form-control" id="serviceInclus{{i}}" formControlName="{{i}}">
+                <button type="button" (click)="removeServiceInclus(i)">Remove</button>
+              </div>
+              <button type="button" (click)="addServiceInclus()">Add Service Inclus</button>
+            </div>
+          </div>
+
+          <!-- Conditions Résiliation -->
+          <div *ngIf="conventionForm.get('conditionsResiliation')?.value">
+            <div formArrayName="conditionsResiliation">
+              <div *ngFor="let condition of conventionForm.get('conditionsResiliation')?.value; let i=index" class="form-group">
+                <label for="conditionResiliation{{i}}">Condition Résiliation {{i+1}}</label>
+                <input type="text" class="form-control" id="conditionResiliation{{i}}" formControlName="{{i}}">
+                <button type="button" (click)="removeConditionResiliation(i)">Remove</button>
+              </div>
+              <button type="button" (click)="addConditionResiliation()">Add Condition Résiliation</button>
+            </div>
+          </div>
+
+          <!-- Autres champs de formulaire -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeUpdateModal()">Annuler</button>
+            <button type="button" class="btn btn-primary" (click)="updateConvention()">Mettre à Jour</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

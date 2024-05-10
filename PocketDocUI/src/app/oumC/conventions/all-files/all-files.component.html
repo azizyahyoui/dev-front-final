@@ -1,0 +1,37 @@
+ <!-- Afficher la liste des fichiers -->
+ <div class="container mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Content Type</th>
+                <th>Preview</th>
+                <th>Action</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of files">
+                <td>{{ file.filename }}</td>
+                <td>{{ file.contentType }}</td>
+                <td>
+                    <ng-container *ngIf="file.contentType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                        Document Word
+                    </ng-container>
+                    <ng-container *ngIf="file.contentType === 'application/pdf'">
+                        Document PDF
+                    </ng-container>
+                    <ng-container *ngIf="isImageFile(file)">
+                        <img [src]="file.processedImage" alt="File Image" class="file-image" class="img-thumbnail">
+                    </ng-container>
+                </td>
+                <td>
+                    <button class="btn btn-primary" (click)="downloadFile(file.id, file.filename)">Download</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteFile(file.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

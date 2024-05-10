@@ -1,0 +1,196 @@
+<head>
+  <style>
+    .notification-icon {
+      position: relative;
+      display: inline-block;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 20px;
+      padding: 2px 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff; /* Nouvelle couleur bleue */
+      border-radius: 50%;
+    }
+
+    .notification-icon i {
+      font-size: 24px; /* Taille de l'icône */
+      color: #007bff; /* Nouvelle couleur bleue */
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Fiches</h1>
+  <button id="openModalButton" type="button" class="btn btn-primary" style="
+    position: fixed;
+    top: 150px;
+    left: 20px;
+    z-index: 9999;
+    padding: 15px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    " (click)="openAddDialog()">Ajouter une fiche pour la première fois</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Histoire familiale</th>
+        <th>Évaluation psychologique</th>
+        <th>Notes de suivi</th>
+        <th>Étudiant</th>
+        
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fiche of fiches">
+        <td>{{ fiche.idFiche }}</td>
+        <td>{{ fiche.historiq_fam }}</td> 
+        <td>{{ fiche.eval_psy }}</td> 
+        <td>{{ fiche.notes_de_suivi }}</td>
+        <td>{{ fiche.user_name }}</td>
+     
+      
+      
+        <!-- Dans le tableau où vous affichez les fiches -->
+<td>
+  <!-- Bouton pour supprimer une fiche -->
+  <button *ngIf="fiche.idFiche !== undefined" (click)="supprimerFiche(fiche.idFiche)" class="btn btn-supprimer">Supprimer</button>
+  <!-- Bouton pour ajouter une fiche -->
+  <button *ngIf="fiche.idFiche" (click)="ouvrirModalAjoutFiche(fiche.idFiche)" class="btn btn-ajouter">Ajouter Fiche</button>
+  <!-- Bouton pour ouvrir la modal de mise à jour -->
+  <button *ngIf="fiche.idFiche" (click)="ouvrirModalUpdateFiche(fiche.idFiche)" class="btn btn-secondary">Modifier fiche</button>
+</td>
+
+      </tr>
+    </tbody>
+  </table>
+ 
+
+
+
+
+
+  <!-- Add Dialog -->
+<div id="addModal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Patient Record</h5>
+        <button type="button" class="close" (click)="closeAddDialog()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <!-- Liste des utilisateurs sans fiche -->
+         <label for="etudiant">Choose Patient name</label>
+         <select class="form-control" id="etudiant" [(ngModel)]="selectedUserId" required>
+           <option value="0" disabled selected>Choose Patient name</option>
+           <option *ngFor="let user of usersWithoutFiche" [value]="user.id">{{ user.name }} {{ user.lastname }}</option>
+         </select>
+        <!-- Formulaire pour ajouter une fiche -->
+        <form (ngSubmit)="addFiche()">
+          <!-- Champs de formulaire pour la fiche -->
+          <div class="form-group">
+            <label for="historiqueFam">Family history</label>
+            <textarea class="form-control" id="historiqueFam" name="historiq_fam" [(ngModel)]="newFiche.historiq_fam" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="evaluationPsy">Psychological assessment</label>
+            <textarea class="form-control" id="evaluationPsy" name="eval_psy" [(ngModel)]="newFiche.eval_psy" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="notesSuivi">Follow-up notes</label>
+            <textarea class="form-control" id="notesSuivi" name="notes_de_suivi" [(ngModel)]="newFiche.notes_de_suivi" required></textarea>
+          </div>
+
+          <!-- Bouton pour soumettre le formulaire -->
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal pour ajouter une fiche -->
+  <div id="modalAjoutFicheUtilisateur" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add patient record to an existant patient</h5>
+          <button type="button" class="close" (click)="fermerModalAjoutFicheUtilisateur()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Contenu du formulaire pour ajouter une fiche -->
+          <form (ngSubmit)="addFiche()">
+            <!-- Champs de formulaire pour la fiche -->
+            <div class="form-group">
+              <label for="historiqueFam">Family history</label>
+              <textarea class="form-control" id="historiqueFam" name="historiq_fam" [(ngModel)]="newFiche.historiq_fam" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="evaluationPsy">Psychological assessment</label>
+              <textarea class="form-control" id="evaluationPsy" name="eval_psy" [(ngModel)]="newFiche.eval_psy" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="notesSuivi">Follow-up notes</label>
+              <textarea class="form-control" id="notesSuivi" name="notes_de_suivi" [(ngModel)]="newFiche.notes_de_suivi" required></textarea>
+            </div>
+            <!-- Utilisez selectedUserIdFromTable pour définir l'utilisateur -->
+            <input type="hidden" name="userId" [(ngModel)]="selectedUserIdFromTable">
+            <!-- Bouton pour soumettre le formulaire -->
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de mise à jour de la fiche -->
+  <div id="modalUpdateFiche" class="modal square-modal hide-modal">
+    <div class="modal-content">
+      <span class="close" (click)="fermerModalUpdateFiche()">&times;</span>
+      <h2>Modify patient record </h2>
+      <form [formGroup]="ficheForm" (ngSubmit)="updateFiche()">
+        <div class="form-group">
+          <label for="historiq_fam">Family history</label>
+          <input type="text" formControlName="historiq_fam" id="historiq_fam">
+        </div>
+        <div class="form-group">
+          <label for="eval_psy">Psychological assessment</label>
+          <input type="text" formControlName="eval_psy" id="eval_psy">
+        </div>
+        <div class="form-group">
+          <label for="notes_de_suivi">Follow-up notes</label>
+          <input type="text" formControlName="notes_de_suivi" id="notes_de_suivi">
+        </div>
+        <button type="submit">Modify</button>
+      </form>
+    </div>
+  </div>
+  

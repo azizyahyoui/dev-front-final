@@ -1,0 +1,15 @@
+/* Hide checkbox input */
+.menu-toggle {
+  display: none;
+}
+
+/* Show sub-menu when checkbox is checked */
+.menu-toggle:checked ~ .sub-menu {
+  display: block;
+}
+
+/* Sub-menu styles */
+.sub-menu {
+  display: none;
+  padding-left: 50px;
+}

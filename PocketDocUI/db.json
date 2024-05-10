@@ -1,0 +1,346 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "Quels sont les symptômes de l'anxiété ?"
+      },
+      {
+        "id": 2,
+        "question": "Comment puis-je gérer le stress au travail ?"
+      },
+      {
+        "id": 3,
+        "question": "Quelles sont les techniques de relaxation pour traiter l'insomnie ?"
+      },
+      {
+        "id": 4,
+        "question": "Qu'est-ce que la dépression et quels sont ses traitements ?"
+      },
+      {
+        "id": 5,
+        "question": "Comment puis-je aider un proche atteint de trouble bipolaire ?"
+      },
+      {
+        "id": 6,
+        "question": "Quels sont les signes avant-coureurs d'une crise de panique ?"
+      },
+      {
+        "id": 7,
+        "question": "Quels sont les effets à long terme de la consommation excessive d'alcool sur la santé mentale ?"
+      },
+      {
+        "id": 8,
+        "question": "Comment puis-je améliorer ma santé mentale au quotidien ?"
+      },
+      {
+        "id": 9,
+        "question": "Quelles sont les options de traitement pour les troubles alimentaires comme l'anorexie et la boulimie ?"
+      },
+      {
+        "id": 10,
+        "question": "Quels sont les avantages de la thérapie cognitivo-comportementale pour la gestion de l'anxiété et de la dépression ?"
+      },
+      {
+        "id": 11,
+        "question": "Quelles sont les causes de l'insomnie et comment peut-on la traiter naturellement ?"
+      },
+      {
+        "id": 12,
+        "question": "Quels sont les différents types de phobies et comment peut-on les surmonter ?"
+      },
+      {
+        "id": 13,
+        "question": "Comment puis-je soutenir un ami qui vit avec un trouble de stress post-traumatique (TSPT) ?"
+      },
+      {
+        "id": 14,
+        "question": "Quelles sont les stratégies pour améliorer l'estime de soi et la confiance en soi ?"
+      },
+      {
+        "id": 15,
+        "question": "Comment reconnaître les signes de burn-out et comment prévenir l'épuisement professionnel ?"
+      },
+      {
+        "id": 16,
+        "question": "Quelles sont les meilleures pratiques pour la gestion de la colère et de l'irritabilité ?"
+      },
+      {
+        "id": 17,
+        "question": "Quels sont les effets du stress chronique sur le système immunitaire ?"
+      },
+      {
+        "id": 18,
+        "question": "Quelles sont les méthodes de relaxation efficaces pour réduire l'anxiété et favoriser le bien-être ?"
+      },
+      {
+        "id": 19,
+        "question": "Quels sont les liens entre l'alimentation et la santé mentale, et comment une alimentation équilibrée peut-elle affecter notre bien-être émotionnel ?"
+      },
+      {
+        "id": 20,
+        "question": "Comment reconnaître les signes de dépendance aux substances et où chercher de l'aide pour le rétablissement ?"
+      },
+      {
+        "id": 21,
+        "question": "Quels sont les types de médicaments psychiatriques et leurs utilisations ?"
+      },
+      {
+        "id": 22,
+        "question": "Quels sont les effets secondaires courants des médicaments psychiatriques et comment les gérer ?"
+      },
+      {
+        "id": 23,
+        "question": "Comment savoir si un médicament psychiatrique est efficace pour moi ?"
+      },
+      {
+        "id": 24,
+        "question": "Quelles sont les interactions médicamenteuses à prendre en compte lors de la prise de médicaments psychiatriques ?"
+      },
+      {
+        "id": 25,
+        "question": "Comment trouver le bon équilibre de médicaments pour traiter un trouble mental spécifique ?"
+      },
+      {
+        "id": 26,
+        "question": "Quelles sont les alternatives aux médicaments psychiatriques pour le traitement des troubles mentaux ?"
+      },
+      {
+        "id": 27,
+        "question": "Comment puis-je suivre correctement mon traitement médicamenteux psychiatrique ?"
+      },
+      {
+        "id": 28,
+        "question": "Quels sont les signes indiquant qu'il est temps de revoir ma prescription de médicaments psychiatriques ?"
+      },
+      {
+        "id": 29,
+        "question": "Comment puis-je discuter de mes préoccupations concernant les médicaments psychiatriques avec mon médecin ?"
+      },
+      {
+        "id": 30,
+        "question": "Quelles sont les options de traitement combiné, comme la thérapie et les médicaments, pour les troubles mentaux ?"
+      },
+      {
+        "id": 31,
+        "question": "Quels sont les médicaments couramment prescrits pour le traitement du stress et de l'anxiété ?"
+      },
+      {
+        "id": 32,
+        "question": "Comment les médicaments pour le stress agissent-ils sur le cerveau et le corps ?"
+      },
+      {
+        "id": 33,
+        "question": "Quels sont les risques et les avantages de prendre des médicaments pour le stress à long terme ?"
+      },
+      {
+        "id": 34,
+        "question": "Comment puis-je savoir si j'ai besoin de médicaments pour gérer mon stress ou mon anxiété ?"
+      },
+      {
+        "id": 35,
+        "question": "Quelles sont les alternatives aux médicaments pour le traitement du stress, comme la thérapie et les techniques de relaxation ?"
+      },
+      {
+        "id": 36,
+        "question": "Quels sont les médicaments prescrits pour traiter les addictions, comme l'alcoolisme ou la toxicomanie ?"
+      },
+      {
+        "id": 37,
+        "question": "Comment fonctionnent les médicaments pour les addictions et quels sont leurs effets secondaires ?"
+      },
+      {
+        "id": 38,
+        "question": "Quels sont les facteurs à considérer lors du choix d'un médicament pour le traitement d'une dépendance spécifique ?"
+      },
+      {
+        "id": 39,
+        "question": "Comment puis-je soutenir un proche qui prend des médicaments pour traiter une dépendance ?"
+      },
+      {
+        "id": 40,
+        "question": "Quels sont les programmes de désintoxication médicalement assistée disponibles pour les personnes luttant contre une dépendance ?"
+      },
+      {
+        "id": 41,
+        "question": "Quels sont les médicaments utilisés pour aider à réduire la consommation d'alcool ?"
+      },
+      {
+        "id": 42,
+        "question": "Pouvez-vous expliquer le fonctionnement de l'Acamprosate dans le traitement de l'alcoolisme ?"
+      },
+      {
+        "id": 43,
+        "question": "Comment le Disulfirame aide-t-il à décourager la consommation d'alcool ?"
+      },
+      {
+        "id": 44,
+        "question": "Quels sont les effets secondaires potentiels du Naltrexone et comment affectent-ils le traitement de l'alcoolisme ?"
+      },
+      {
+        "id": 45,
+        "question": "Quelles sont les recommandations concernant l'utilisation de la Naltrexone à libération prolongée pour le traitement de l'alcoolisme ?"
+      },
+      {
+        "id": 46,
+        "question": "Quels sont les médicaments disponibles pour aider à arrêter de fumer ?"
+      },
+      {
+        "id": 47,
+        "question": "Comment fonctionne la Varénicline dans le sevrage tabagique ?"
+      },
+      {
+        "id": 48,
+        "question": "Quels sont les effets secondaires possibles de la Varénicline et comment peuvent-ils être gérés ?"
+      },
+      {
+        "id": 49,
+        "question": "Pouvez-vous décrire l'action de la Bupropion dans le traitement de la dépendance au tabac ?"
+      },
+      {
+        "id": 50,
+        "question": "Comment le patch de nicotine peut-il aider à réduire les symptômes de sevrage tabagique ?"
+      },
+      {
+        "id": 51,
+        "question": "Quels sont les médicaments utilisés dans le traitement de la dépendance aux opioïdes ?"
+      },
+      {
+        "id": 52,
+        "question": "Pouvez-vous expliquer comment la Méthadone est utilisée dans le traitement de la dépendance aux opioïdes ?"
+      },
+      {
+        "id": 53,
+        "question": "Quels sont les avantages et les inconvénients de l'utilisation de la Buprénorphine pour le traitement de la dépendance aux opioïdes ?"
+      },
+      {
+        "id": 54,
+        "question": "Comment le Naloxone est-il utilisé dans les situations d'urgence liées à la surdose d'opioïdes ?"
+      },
+      {
+        "id": 55,
+        "question": "Quels sont les médicaments disponibles pour le traitement de la dépendance à la cocaïne et leurs mécanismes d'action ?"
+      },
+      
+    {
+      "id": 56,
+      "question": "Quels sont les médicaments les plus couramment prescrits pour le traitement de l'alcoolisme, et comment fonctionnent-ils ?"
+    },
+    {
+      "id": 57,
+      "question": "Quel est le rôle de la naltrexone dans le traitement de la dépendance à l'alcool, et quels sont ses effets secondaires potentiels ?"
+    },
+    {
+      "id": 58,
+      "question": "Comment fonctionne l'acamprosate dans la réduction de la consommation d'alcool, et quel est son impact sur le processus de rétablissement ?"
+    },
+    {
+      "id": 59,
+      "question": "Quelles sont les indications pour l'utilisation de la disulfirame dans le traitement de l'alcoolisme, et quelles sont les précautions à prendre lors de son utilisation ?"
+    },
+    {
+      "id": 60,
+      "question": "Existe-t-il d'autres médicaments ou approches pharmacologiques émergents dans le traitement de l'alcoolisme, et quelles sont leurs implications cliniques ?"
+    },
+    {
+      "id": 61,
+      "question": "Quels sont les médicaments approuvés par la FDA pour aider à arrêter de fumer, et comment fonctionnent-ils ?"
+    },
+    {
+      "id": 62,
+      "question": "Quelle est l'efficacité de la varénicline dans le sevrage tabagique, et quels sont ses effets secondaires les plus courants ?"
+    },
+    {
+      "id": 63,
+      "question": "Comment fonctionne la bupropion dans le traitement de la dépendance au tabac, et quelles sont ses interactions médicamenteuses potentielles ?"
+    },
+    {
+      "id": 64,
+      "question": "Existe-t-il des alternatives aux médicaments traditionnels pour le sevrage tabagique, telles que les thérapies de remplacement de la nicotine ou les approches de réduction graduelle ?"
+    },
+    {
+      "id": 65,
+      "question": "Quels sont les protocoles de dosage recommandés pour les médicaments utilisés dans le traitement du tabagisme, et comment les ajuste-t-on en fonction des besoins individuels du patient ?"
+    },
+    {
+      "id": 66,
+      "question": "Quels sont les médicaments utilisés dans le traitement de la dépendance aux opioïdes, et comment agissent-ils sur le système nerveux central ?"
+    },
+    {
+      "id": 67,
+      "question": "Quelle est l'efficacité de la buprénorphine/naloxone dans le traitement de la dépendance aux opioïdes, et quels sont les protocoles de titration recommandés ?"
+    },
+    {
+      "id": 68,
+      "question": "Comment la méthadone est-elle utilisée dans la gestion du sevrage aux opioïdes, et quels sont ses avantages et ses inconvénients par rapport à d'autres médicaments ?"
+    },
+    {
+      "id": 69,
+      "question": "Existe-t-il des médicaments ou des approches pharmacologiques spécifiques pour le traitement de la dépendance à la cocaïne ou à la méthamphétamine, et quelle est leur efficacité relative ?"
+    },
+    {
+      "id": 70,
+      "question": "Quels sont les défis potentiels liés à l'utilisation de médicaments dans le traitement des addictions aux drogues, et comment les professionnels de la santé les abordent-ils dans la pratique clinique ?"
+    },
+    {
+        "id": 56,
+        "question": "Quels sont les médicaments les plus couramment prescrits pour le traitement de l'alcoolisme, et comment fonctionnent-ils ?"
+      },
+      {
+        "id": 57,
+        "question": "Quel est le rôle de la naltrexone dans le traitement de la dépendance à l'alcool, et quels sont ses effets secondaires potentiels ?"
+      },
+      {
+        "id": 58,
+        "question": "Comment fonctionne l'acamprosate dans la réduction de la consommation d'alcool, et quel est son impact sur le processus de rétablissement ?"
+      },
+      {
+        "id": 59,
+        "question": "Quelles sont les indications pour l'utilisation de la disulfirame dans le traitement de l'alcoolisme, et quelles sont les précautions à prendre lors de son utilisation ?"
+      },
+      {
+        "id": 60,
+        "question": "Existe-t-il d'autres médicaments ou approches pharmacologiques émergents dans le traitement de l'alcoolisme, et quelles sont leurs implications cliniques ?"
+      },
+      {
+        "id": 61,
+        "question": "Quels sont les médicaments approuvés par la FDA pour aider à arrêter de fumer, et comment fonctionnent-ils ?"
+      },
+      {
+        "id": 62,
+        "question": "Quelle est l'efficacité de la varénicline dans le sevrage tabagique, et quels sont ses effets secondaires les plus courants ?"
+      },
+      {
+        "id": 63,
+        "question": "Comment fonctionne la bupropion dans le traitement de la dépendance au tabac, et quelles sont ses interactions médicamenteuses potentielles ?"
+      },
+      {
+        "id": 64,
+        "question": "Existe-t-il des alternatives aux médicaments traditionnels pour le sevrage tabagique, telles que les thérapies de remplacement de la nicotine ou les approches de réduction graduelle ?"
+      },
+      {
+        "id": 65,
+        "question": "Quels sont les protocoles de dosage recommandés pour les médicaments utilisés dans le traitement du tabagisme, et comment les ajuste-t-on en fonction des besoins individuels du patient ?"
+      },
+      {
+        "id": 66,
+        "question": "Quels sont les médicaments utilisés dans le traitement de la dépendance aux opioïdes, et comment agissent-ils sur le système nerveux central ?"
+      },
+      {
+        "id": 67,
+        "question": "Quelle est l'efficacité de la buprénorphine/naloxone dans le traitement de la dépendance aux opioïdes, et quels sont les protocoles de titration recommandés ?"
+      },
+      {
+        "id": 68,
+        "question": "Comment la méthadone est-elle utilisée dans la gestion du sevrage aux opioïdes, et quels sont ses avantages et ses inconvénients par rapport à d'autres médicaments ?"
+      },
+      {
+        "id": 69,
+        "question": "Existe-t-il des médicaments ou des approches pharmacologiques spécifiques pour le traitement de la dépendance à la cocaïne ou à la méthamphétamine, et quelle est leur efficacité relative ?"
+      },
+      {
+        "id": 70,
+        "question": "Quels sont les défis potentiels liés à l'utilisation de médicaments dans le traitement des addictions aux drogues, et comment les professionnels de la santé les abordent-ils dans la pratique clinique ?"
+      }
+    ]
+  }
+  

@@ -1,0 +1,11 @@
+body.full-page {
+    min-height: 100vh; /* Set minimum height to 100% of viewport height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children in a column */
+    justify-content: space-between; /* Space evenly between children */
+  }
+  
+  .main-content {
+    flex: 1; /* Expand to fill remaining space */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+  }

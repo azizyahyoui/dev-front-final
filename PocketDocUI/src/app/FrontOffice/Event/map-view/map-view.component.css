@@ -1,0 +1,27 @@
+#maCarte { height: 450px; width: 350px; margin-left: 70px; }
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff0000; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none;
+    border-radius: 50%; /* Bord arrondi */
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  
+  .open-button-container {
+    text-align: center; /* Centrage horizontal */
+    margin-top: 20px; /* Marge pour l'espacement */
+  }
+
+  .open-button {
+    background-color: #007bff; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none;
+    border-radius: 4px; /* Bord arrondi */
+    padding: 10px 20px; /* Espacement interne */
+  }

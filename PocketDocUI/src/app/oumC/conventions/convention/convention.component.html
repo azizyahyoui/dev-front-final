@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Convention</title>
+    <!-- Styles pour l'image de contrat -->
+    <style>
+        /* Animation de défilement horizontal pour l'arrière-plan */
+        @keyframes scroll {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 0;
+            }
+        }
+
+        /* Appliquer l'animation à l'arrière-plan */
+        body {
+            animation: scroll 30s linear infinite;
+            background: url('/assets/img/contrat.jpg') repeat-x; /* Remplacez 'contrat.jpg' par le nom de votre image */
+            background-size: auto 100%; /* Ajuster la taille de l'image */
+        }
+        
+        /* Style pour réduire la taille de la carte contenant l'image de PDF */
+        .card {
+            width: 200px; /* Définir la largeur de la carte */
+            margin: auto;
+            text-align: center;
+        }
+        
+        /* Style pour réduire la taille de l'image */
+        .card-img-top {
+            width: 100px; /* Définir la largeur de l'image */
+            height: auto; /* Maintenir le rapport hauteur/largeur */
+            margin: 10px auto; /* Ajuster la marge */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="export-format text-center">
+        <h3 class="export-format__title mb-4">Download your Convention</h3>
+      
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="image-container">
+                <img class="card-img-top img-fluid" src="assets/img/pdf.png" alt="Export PDF" (click)="exportConventionPdf(userId)">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Export PDF</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

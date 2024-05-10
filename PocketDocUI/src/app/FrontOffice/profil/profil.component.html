@@ -1,0 +1,183 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+
+  <div class="main-content">
+    <!-- Top navbar -->
+    
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image:url('../../../assets/cover.jpg'); background-size: 100%; background-position: center top; height: 300%;">
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white" *ngIf="user">Hello {{user.name}}</h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+            <a href="editProfil" class="btn btn-info">Edit profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                    <label for="profile-picture" style="cursor: pointer;">
+                      <img [src]="user.profileImageUrl1" class="rounded-circle" *ngIf="user">
+                    </label>
+                    <input id="profile-picture" type="file" style="display: none; " name="profileFile1" (change)="onFileSelected($event)">
+                  </div>
+                  
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-sm btn-info ml-2" (click)="changeProfileImage1()">Changer</button>
+                <!--<a href="#" class="btn btn-sm btn-default float-right">Message</a>-->
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                      <span class="heading">22</span>
+                      <span class="description">Friends</span>
+                    </div>
+                    <div>
+                      <span class="heading">10</span>
+                      <span class="description">Photos</span>
+                    </div>
+                    <div>
+                      <span class="heading">89</span>
+                      <span class="description">Comments</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center" *ngIf="user">
+                <h3>
+                  {{user.name}} {{user.lastname}}<span class="font-weight-light">, 27 ans</span>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2" *ngIf="user"></i>{{user.country}}, {{user.city}}
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                </div>
+                <div>
+                  <i class="ni education_hat mr-2"></i>University of Computer Science
+                </div>
+                <hr class="my-4">
+                <p>{{user.aboutme}}</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My account</h3>
+                </div>
+                <!--<div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                </div>-->
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label text-primary" for="input-city" >Name:</label>
+                        <h3 class="mb-4" *ngIf="user">{{ '      ' + user.name}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label text-primary" for="input-city">Last Name:</label>
+                        <h3 class="" for="input-name" *ngIf="user"><strong>{{user.lastname}}</strong></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label text-primary" for="input-city">Email:</label>
+                        <h3 class="" for="input-name" *ngIf="user"> <strong>{{user.email}}</strong></h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label text-primary" for="input-city">Telephone:</label>
+                        <h3 class="" for="input-name" *ngIf="user"> <strong>{{user.telephone}}</strong></h3>
+                      </div>
+                    </div>
+                  </div>
+                    
+                </div>
+                
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label text-primary" for="input-city">Address:</label>
+                        <h3 class="" for="input-name" *ngIf="user">     <strong>{{user.country}}/{{user.city}}/{{user.rue}}</strong></h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-focused">
+                        <label class="form-control-label text-primary" for="input-city">Code Postal:</label>
+                        <h3 class="" for="input-name" *ngIf="user"> <strong>{{user.codePostal}}</strong></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label text-primary" for="input-city">Contry:</label>
+                        <h3  placeholder="City" *ngIf="user">{{user.country}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <!-- Utilisez la classe "text-primary" de Bootstrap pour changer la couleur -->
+                        <label class="form-control-label text-primary" for="input-city">Country:</label>
+                        <h3 placeholder="City" *ngIf="user">{{user.country}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label text-primary" for="input-city">Rue:</label>
+                        <h3  placeholder="City" *ngIf="user">{{user.rue}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">About Me :</h6>
+                <div class="pl-lg-4">
+                  <div class="form-group focused">
+                    <h3 *ngIf="user">{{user.aboutme}}</h3>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

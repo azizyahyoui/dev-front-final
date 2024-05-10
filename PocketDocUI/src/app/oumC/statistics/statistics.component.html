@@ -1,0 +1,28 @@
+
+
+<div class="row">
+    <!-- Première colonne pour le premier graphique -->
+    <div class="col-lg-6">
+      <h2>Type Addiction</h2>
+      <canvas id="ficheChart"></canvas>
+    </div>
+ 
+    <!-- Deuxième colonne pour le deuxième graphique -->
+    <div class="col-lg-6">
+      <h2>Symptom Intensity</h2>
+      <canvas id="symptomChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Bouton Excel dans une nouvelle rangée -->
+  <div class="row">
+    <div class="col-12">
+      <div class="col-3" style="display: inline-block; cursor: pointer; margin-left: 10px;">
+        <a (click)="exportExcel()" style="display: flex; align-items: center;">
+          <img src="assets/img/excel.png" alt="Export Excel" style="width: 96px; height: 96px; margin-right: 8px; transition: transform 0.3s;">
+          <span style="font-size: 18px;">Exporter Excel : Etude financiére </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  

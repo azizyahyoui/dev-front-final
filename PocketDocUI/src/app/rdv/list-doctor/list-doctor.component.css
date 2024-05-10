@@ -1,0 +1,21 @@
+.example-card {
+    margin-bottom: 20px; /* Ajoute un espacement en bas de chaque carte */
+    width: 400px; /* Ajustez la largeur des cartes selon vos besoins */
+    margin: 0 auto; /* Centre les cartes horizontalement */
+    border: 1px solid #ccc; /* Ajoute une bordure grise à la carte */
+    border-radius: 8px; /* Ajoute un arrondi aux coins de la carte */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce à la carte */
+}
+
+.mat-card-avatar {
+    width: 800px; /* Ajustez la largeur de l'avatar selon vos besoins */
+    height: 800px; /* Ajustez la hauteur de l'avatar selon vos besoins */
+    border-radius: 50%; /* Rend l'avatar rond */
+    overflow: hidden; /* Cache toute partie de l'image qui dépasse de l'avatar */
+}
+
+.mat-card-avatar img {
+    background-size: cover;
+    width: 100%; /* Assurez-vous que l'image de l'avatar remplit complètement son conteneur */
+    height: 100%; /* Assurez-vous que l'image de l'avatar remplit complètement son conteneur */
+}

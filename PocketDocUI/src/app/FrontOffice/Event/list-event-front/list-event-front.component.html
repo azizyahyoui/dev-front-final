@@ -1,0 +1,75 @@
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+</head>
+<div class="container">
+  <!-- Bouton pour afficher les inscriptions de l'utilisateur -->
+  <button class="custom-card-button btn btn-info mt-2 " (click)="openInscriUser()">My registrations</button> 
+
+  <!-- Nouvelle rangée pour les champs de recherche -->
+  <div class="row justify-content-center mb-3 mt-3">
+    <div class="col-md-6 d-flex align-items-end justify-content-end search-container"> <!-- Utilisez une colonne Bootstrap pour aligner les champs -->
+        <select class="form-control mr-2 custom-select" [(ngModel)]="selectedCategory">
+          <option value="" disabled selected>Search by...</option>
+            <option value="title" selected >Title</option>
+            <option value="description">Description</option>
+            <option value="location">Location</option>
+            <option value="date">Date</option>
+            <!-- Ajoutez d'autres catégories de filtrage si nécessaire -->
+        </select>
+        <input type="text" class="form-control custom-input" placeholder="Search term" [(ngModel)]="searchTerm">
+    </div>
+</div>
+
+  <!-- Affichage des événements disponibles -->
+  <div class="row justify-content-center">
+    <h2>Events available</h2>
+    <div class="col-md-10">
+      <div class="row">
+        <ng-container *ngFor="let item of getCurrentPageEvents()">
+          <div class="col-md-4">
+            <!-- Affichage de chaque événement disponible -->
+            <div class="custom-card">
+              <img [src]="item.imageEvent ? item.imageEvent : '/assets/FrontOffice/images/EventAddict.png'" class="custom-card-image img-fluid" alt="">
+              <div class="custom-card-body d-flex flex-column align-items-center">
+                <h5 class="custom-card-title text-center">{{ item?.title || 'Nom non disponible' }}</h5>
+                <div *ngIf="showFullDetails[item.id]">
+                  <p class="custom-card-text"><strong>Description:</strong> {{ item?.description || 'Non spécifiée' }}</p>
+                  <p class="custom-card-text"><strong>Date:</strong> {{ item?.date | date:'yyyy-MM-dd' || 'Non spécifiée' }}</p>
+                  <p class="custom-card-text"><strong>Location:</strong> {{ item?.location || 'Non spécifiée' }}</p>
+                  <div class="text-center"> <!-- Centrage horizontal du bouton -->
+                    <button class="custom-card-button btn btn-info mt-2" (click)="openMapPopup(item?.x, item?.y)">Show Map</button>
+                  </div>
+                  <p class="custom-card-text"><strong>nb place available:</strong> {{ item?.nbPlaceAvailable  }}</p>
+                  <!-- Ajoutez d'autres champs ici -->
+                </div>
+                <div class="d-flex justify-content-between">
+                  <button *ngIf="!showFullDetails[item.id]" (click)="toggleDescription(item)" class="btn btn-link">See more</button>
+                  <button *ngIf="showFullDetails[item.id]" (click)="toggleDescription(item)" class="btn btn-link">Hide</button>
+                </div>
+                <button (click)="registerEvent(item.id)" class="custom-card-button btn btn-info mt-2">Register</button> 
+              </div>
+            </div>
+            
+          </div>
+        </ng-container>
+      </div>
+          
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <!-- Div pour limiter la largeur des boutons -->
+    <div class="pagination-buttons">
+      <!-- Boutons de pagination -->
+      <div class="btn-group" role="group" aria-label="Pagination">
+        <button class="btn btn-sm btn-primary" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+        <button class="btn btn-sm btn-primary" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <p>Page {{ currentPage }} of {{ totalPages }}</p>
+  </div>
+  

@@ -1,0 +1,134 @@
+<div class="outer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="panel border bg-white mt-4"> <!-- Ajout de mt-4 pour réduire la marge supérieure -->
+                    <div class="panel-heading">
+                        <div class="profile-pic">
+                            <img src="/assets/image3.jpg" alt="Profile Picture">
+                        </div>
+
+                        <h3 class=" font-weight-bold ">Register</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <div class="text-center text-danger">{{ message }}</div>
+                        <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+                            <!-- Name and Last Name -->
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-user p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-user p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email and Telephone -->
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-envelope p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Adresse Email" formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-phone p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Téléphone" formControlName="telephone">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password and Confirm Password -->
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-lock p-2"></span>
+                                        <input [type]="type" class="form-control" placeholder="Password" formControlName="password">
+                                        <span (click)="hideShowPass()"  class="fa {{eyeIcon}}" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-lock p-2"></span>
+                                        <input [type]="type" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+                                        <span (click)="hideShowPass()"  class="fa {{eyeIcon}}" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- City, Country and Street -->
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-globe p-2"></span>
+                                        <input type="text" class="form-control" placeholder="City" formControlName="city">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-globe p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Country" formControlName="country">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-road p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Street" formControlName="rue">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Postal Code and Date of Birth -->
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-home p-2"></span>
+                                        <input type="text" class="form-control" placeholder="Postal Code" formControlName="codePostal">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-field">
+                                        <span class="fa fa-calendar p-2"></span>
+                                        <input type="date" class="form-control" placeholder="Date of Birth (YYYY-MM-DD)" formControlName="datenaissance">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role:</label>
+                                <div class="radio-group mt-2">
+                                    <input type="radio" id="admin" name="role" value="ADMIN" formControlName="role">
+                                    <label for="admin">Admin</label>
+                                    
+                                    <input type="radio" id="user" name="role" value="USER" formControlName="role">
+                                    <label for="user">User</label>
+                                    
+                                    <input type="radio" id="doctor" name="role" value="DOCTOR" formControlName="role">
+                                    <label for="doctor">Doctor</label>
+                                </div>
+                            </div>
+                            
+
+
+                            <!-- About Me -->
+                            <div class="form-group mb-3 pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-info-circle p-2"></span>
+                                    <input type="text" class="form-control" placeholder="About Me" formControlName="aboutme">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mt-2 w-100" [disabled]="registerForm.invalid">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

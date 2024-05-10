@@ -1,0 +1,94 @@
+/* Style pour le modal */
+.modal {
+  display: none; /* Par défaut, le modal est caché */
+  position: fixed;
+  z-index: 1000; /* Assure que le modal s'affiche au-dessus du reste du contenu */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.modal-dialog {
+  background-color: #fefefe;
+  margin: 10% auto; /* Centre le modal verticalement et horizontalement */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Limite la largeur maximale du modal */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce autour du modal */
+}
+
+/* Style pour le contenu du modal */
+.modal-content {
+  margin: auto;
+}
+
+/* Style pour le bouton de fermeture du modal */
+.btn-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style pour le formulaire de convention */
+.add-convention-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.add-convention-title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-convention-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-convention-input,
+.add-convention-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-button-blue,
+.add-button-green,
+.add-button-red {
+  background-color: #007bff; /* Bleu par défaut */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.add-button-green {
+  background-color: #28a745; /* Vert */
+}
+
+.add-button-red {
+  background-color: #dc3545; /* Rouge */
+}
+
+.button-group {
+  margin-top: 20px;
+  text-align: right;
+}

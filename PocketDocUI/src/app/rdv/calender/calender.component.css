@@ -1,0 +1,9 @@
+#calendar-container {
+    width: 700px; /* Ajustez la largeur du calendrier selon vos besoins */
+    height: 700px; /* Ajustez la hauteur du calendrier selon vos besoins */
+    margin: 0 auto; /* Centre le calendrier horizontalement */
+    border: 1px solid #ccc; /* Bordure optionnelle pour délimiter le calendrier */
+    text-align: center; /* Centre le contenu à l'intérieur du conteneur */
+   
+    padding: 20apx; /* Ajoute de l'espace intérieur autour du calendrier */
+  }

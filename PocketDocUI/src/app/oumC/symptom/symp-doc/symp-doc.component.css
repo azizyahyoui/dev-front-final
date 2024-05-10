@@ -1,0 +1,46 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Couleur de fond gris clair */
+    padding: 20px;
+  }
+  
+  .symptoms-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .symptom {
+    background-color: #fff; /* Couleur de fond blanc */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .header {
+    background-color: #d32f2f; /* Rouge foncé */
+    color: #fff; /* Texte blanc */
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .header h3 {
+    margin: 0;
+  }
+  
+  .details {
+    padding: 10px;
+  }
+  
+  .no-symptoms {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter une fiche</h5>
+          <button type="button" class="close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Liste des utilisateurs sans fiche -->
+          <label for="etudiant">Choisir un utilisateur</label>
+          <select class="form-control" id="etudiant" [(ngModel)]="selectedUserId" required>
+            <option value="0" disabled selected>Choisir un utilisateur</option>
+            <option *ngFor="let user of usersWithoutFiche" [value]="user.id">{{ user.name }} {{ user.lastname }}</option>
+          </select>
+
+          <!-- Formulaire pour ajouter une fiche -->
+          <form (ngSubmit)="addFiche()">
+            <!-- Champs de formulaire pour la fiche -->
+            <div class="form-group">
+              <label for="historiqueFam">Histoire familiale</label>
+              <textarea class="form-control" id="historiqueFam" name="historiq_fam" [(ngModel)]="newFiche.historiq_fam" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="evaluationPsy">Évaluation psychologique</label>
+              <textarea class="form-control" id="evaluationPsy" name="eval_psy" [(ngModel)]="newFiche.eval_psy" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="notesSuivi">Notes de suivi</label>
+              <textarea class="form-control" id="notesSuivi" name="notes_de_suivi" [(ngModel)]="newFiche.notes_de_suivi" required></textarea>
+            </div>
+
+            <!-- Bouton pour soumettre le formulaire -->
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

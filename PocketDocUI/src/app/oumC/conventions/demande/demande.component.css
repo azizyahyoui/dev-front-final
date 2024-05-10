@@ -1,0 +1,22 @@
+.upload-btn {
+    position: fixed;
+    top: 150px; /* Déplacer vers le bas de 150 pixels */
+    left: 20px; /* Déplacer vers la droite de 20 pixels */
+    z-index: 9999;
+    padding: 15px 25px; /* Ajuster le rembourrage pour une taille plus grande */
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white; /* Couleur du texte blanc */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    transition: all 0.3s ease; /* Ajouter une transition douce */
+  }
+  
+  .upload-btn:hover {
+    background-color: #45a049; /* Lorsque survolé, couleur de fond légèrement plus foncée */
+    transform: scale(1.1); /* Augmenter la taille de 10% */
+  }
+  

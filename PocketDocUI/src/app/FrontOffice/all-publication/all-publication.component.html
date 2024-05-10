@@ -1,0 +1,284 @@
+<section class="page-title bg-1">        
+    <div class="overlay"></div>        
+    <div class="container">          
+        <div class="row">            
+            <div class="col-md-12">              
+                <div class="block text-center">                
+                    <h1 class="text-capitalize mb-5 text-lg">Publication</h1>              
+                </div>            
+            </div>          
+        </div>        
+    </div>      
+</section>      
+
+
+
+<div class="container">
+    
+
+    <div class="row">
+        <!-- Partie à gauche -->
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title"></h2>
+                
+            </div>
+
+            
+            <div class="publication-container">
+                <!-- Bouton "Add Post" --> 
+                <button class="add-publication-button btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#publicationModal"> 
+                    <i class="fas fa-plus"></i> Add Post 
+                </button>
+
+                <div class="publication-container search-container">
+                <!-- Champ de recherche avec bouton et icône de recherche -->
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search for a publication topic.." [(ngModel)]="searchTerm">
+    <button class="btn btn-outline-secondary" type="button" (click)="searchPublications()">
+        <i class="fas fa-search"></i> 
+    </button>
+       
+</div>
+
+
+                <!-- Boutons de tri -->
+      <div class="d-flex justify-content-center align-items-center mb-3">
+        <button class="btn btn-outline-secondary btn-sm" (click)="toggleButtons('all')">
+          <i class="fas fa-list"></i> Sort
+        </button>
+        <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByDate()">
+          <i class="far fa-calendar-alt"></i> by date
+        </button>
+        <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByPopularity()">
+          <i class="fas fa-fire"></i>  by popularity
+        </button>
+        <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByNumberOfResponses()">
+          <i class="far fa-comments"></i> by responses
+        </button>
+      </div>
+
+   </div>
+
+                <div class="publication" *ngFor="let publication of publications"> 
+                <!--<div class="publication" *ngFor="let publication of publications | paginate: { itemsPerPage: pageSize, currentPage: currentPage }" [attr.data-id]="publication.idPub">-->
+
+                    <div class="publication-header">
+                        <div class="user-avatar admin-avatar">
+                            <!--  affichage l'avatar de l'administrateur -->
+                        </div>
+                        <div class="publication-info">
+                            <div class="user-date">
+                                <h5 class="user-name">Username</h5>
+                                <p class="publication-date">{{publication.datePub | date: 'dd/MM/yyyy'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publication-content">
+                        <h4 class="publication-title">{{publication.sujet}}</h4>
+                        <p class="publication-text">{{publication.contenuPub}}</p>
+                    </div>
+                    <div class="publication-actions d-flex justify-content-between">
+                        <!-- Boutons Like et Dislike à gauche -->
+                        <div>
+                            <button class="btn btn-outline-secondary btn-sm" (click)="likePublication(publication.idPub)">
+                                <i class="far fa-thumbs-up"></i> ({{ publication.likes }})
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm" (click)="dislikePublication(publication.idPub)">
+                                <i class="far fa-thumbs-down"></i>  ({{ publication.dislikes }})
+                            </button>
+                        </div>
+                        <!-- Boutons Comment, Delete et Edit à droite -->
+                        <div >
+                            <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i> 
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm" (click)="deletePublication(publication.idPub)">
+                                <i class="fas fa-trash"></i> 
+                            </button>
+                            
+                            <button class="btn btn-outline-secondary btn-sm" (click)="openUpdateModal(publication.idPub)" data-bs-toggle="modal" data-bs-target="#updatePublicationModal">
+                                <i class="fas fa-pencil-alt"></i> 
+                            </button>
+
+                        </div>
+                    </div>
+            <div>   
+               
+                      <form [formGroup]="newCommentForm">
+
+                        <div class="comments">
+                          <h4>Comments:</h4>
+                          <ul class="comment-list">
+                            <li *ngFor="let commentaire of publication.commentaires">
+                                <div class="comment-content" >
+                                    {{ commentaire.contenuCom }}
+                                    <br>
+                                    <p style="color: #0e1014">{{commentaire.dateCom ? formatDate(commentaire.dateCom) : "" }}</p>
+    
+                                  </div>
+                                  <div class="comment-buttons" >
+                                    <button class="btn btn-outline-secondary btn-sm" (click)="openEditComment(commentaire)" data-bs-toggle="modal" data-bs-target="#editCommentModal">
+                                      <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                    <!--data-bs-toggle="modal" data-bs-target="#deleteCommentModal"-->
+                                    <button class="btn btn-outline-secondary btn-sm" (click)="openDeleteComment(commentaire)" >
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                  </div>
+                            </li>
+                          </ul>
+
+
+                          <div class="add-comment-form">
+                            <div class="comment-input-container">
+                                <input type="text" id="contenuComModal" formControlName="contenuCom" name="contenuComModal" placeholder="Leave comment...">
+                                <i class="fa-solid fa-caret-right" (click)="ajouterCommentaire(publication.idPub)"></i>
+                            </div>
+                        </div>
+                        </div>
+                      </form>
+                    </div>
+
+
+<!-- Open Form-->
+<!-- The Modal-->
+<div class="modal fade" id="publicationModal" tabindex="-1" aria-labelledby="publicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="publicationModalLabel">Add Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+            <form [formGroup]="validateForm">
+                <!--Contenu de votre formulaire ici -->
+                <div class="container" [formGroup]="validateForm">
+                    <div>
+                        <label for="sujet">Topic:</label>
+                        <input type="text" id="sujet" formControlName="sujet">
+                    </div>
+                    <div>
+                        <label for="contenuPub">Content:</label>
+                        <input type="text" id="contenuPub" formControlName="contenuPub">
+                    </div>
+                     <!-- Affichage du message si des mots inappropriés sont détectés -->
+    <div *ngIf="badWordsDetected" class="alert alert-danger mt-2">
+        Inappropriate words were detected in the post. Please delete them.
+    </div>
+
+                    <div>
+                        <label for="datePub">Publication date:</label>
+                        <input type="date" id="datePub" formControlName="datePub" [value]="getCurrentDate()">
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="getAllPublications()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="postPublication()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="updatePublicationModal" tabindex="-1" aria-labelledby="updatePublicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatePublicationModalLabel">Edit Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form [formGroup]="validateForm">
+                <!--Contenu de votre formulaire de mise à jour ici -->
+                <div class="container" [formGroup]="updateForm">
+                    <div>
+                        <label for="sujet">Topic:</label>
+                        <input type="text" id="sujet" formControlName="sujet" > <!--[(ngModel)]="selectedPublication.sujet"-->
+                    </div>
+                    <div>
+                        <label for="contenuPub">Content:</label>
+                        <input type="text" id="contenuPub" formControlName="contenuPub"> <!--[(ngModel)]="selectedPublication.contenuPub"-->
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="getAllPublications()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="updatePublication()" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal-->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel">Add Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form [formGroup]="validateForm">
+                <!--Contenu de votre formulaire ici -->
+                <div class="container" [formGroup]="newCommentForm">
+                    <div>
+                        <label for="contenuCom">Content:</label>
+                        <input type="text" id="contenuComModal1" name="contenuComModal1" formControlName="contenuCom">
+                    </div>
+                    
+
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="ajouterCommentaire(publication.idPub)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- The Modal Edit-->
+<div class="modal" id="editCommentModal" tabindex="-1" aria-labelledby="editCommentModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+          <h5 class="modal-title" id="deleteCommentModalLabel">Edit Comment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="validateForm">
+            <!--Contenu de votre formulaire ici -->
+            <div class="container" [formGroup]="newCommentFormEdit">
+              <div>
+                <label for="contenuCom">Content:</label>
+                <input type="text" id="contenuComModal" name="contenuComModal" formControlName="contenuCom">
+              </div>
+            </div>
+          </form>
+        </div>
+
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editComment()">Save</button>
+           </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--<div class="pagination-container">
+  <pagination-controls (pageChange)="pageChanged($event)" class="pagination"></pagination-controls>
+</div>-->

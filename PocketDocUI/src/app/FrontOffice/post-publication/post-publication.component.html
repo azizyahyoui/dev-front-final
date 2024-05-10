@@ -1,0 +1,19 @@
+<button class="update-button" routerLink="">Liste des publications </button>
+<div class="container" [formGroup]="validateForm">
+        <h2>Ajouter une publication</h2>
+        <div>
+            <label for="sujet">Sujet:</label>
+            <input type="text" id="sujet" formControlName="sujet">
+        </div>
+        <div>
+            <label for="contenuPub">Contenu:</label>
+            <input type="text" id="contenuPub" formControlName="contenuPub">
+        </div>
+    
+        <div>
+            <label for="datePub">Date de publication:</label>
+            <input type="date" id="datePub" formControlName="datePub" [value]="getCurrentDate()">
+        </div>
+        <button (click)="postPublication()">Créer Publication</button>
+    
+</div>

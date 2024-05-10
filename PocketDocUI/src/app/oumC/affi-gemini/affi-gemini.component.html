@@ -1,0 +1,203 @@
+<head>
+  <style>
+    /* Styles pour l'arrière-plan dynamique */
+    /* Animation de défilement horizontal pour l'arrière-plan */
+    @keyframes scroll {
+      from {
+          background-position: 0 0;
+      }
+      to {
+          background-position: 100% 0;
+      }
+    }
+
+    /* Appliquer l'animation à l'arrière-plan */
+    body {
+        animation: scroll 30s linear infinite;
+        background: url('/assets/img/chatbot.png') repeat-x;
+        background-size: auto 100%; /* Ajuster la taille de l'image */
+        margin: 0; /* Supprimer les marges par défaut */
+        padding: 0; /* Supprimer les rembourrages par défaut */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden; /* Empêcher le défilement vertical */
+    }
+
+    /* Styles pour la chatbox */
+    /* Chat Container */
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond du chatbox */
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Chat Header */
+    .chat-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .chat-header h4 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .question-space {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Chat History */
+    .chat-history {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .messages {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .messages .fa {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .responses {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      color: #333;
+    }
+
+    .responses.blue {
+      color: #007bff;
+    }
+
+    .responses.green {
+      color: #28a745;
+    }
+
+    /* Loading Container */
+    .loading-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .loading-line {
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      background-color: #ccc;
+      margin: 0 2px;
+      animation: loading 1s infinite ease-in-out;
+    }
+
+    @keyframes loading {
+      0% {
+        height: 20px;
+      }
+      50% {
+        height: 40px;
+      }
+      100% {
+        height: 20px;
+      }
+    }
+
+    /* Chat Input */
+    .chat-input {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .chat-input input[type="text"] {
+      flex: 1;
+      padding: 15px;
+      border: 2px solid #007bff;
+      border-radius: 30px;
+      margin-right: 15px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .chat-input input[type="text"]:focus {
+      outline: none;
+      border-color: #28a745;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .chat-input button {
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .chat-input button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .chat-input button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h4>Medicament Chat</h4>
+      <p class="question-space">You need help or advice? Tell us all your questions !!</p>
+    </header>
+    
+    <main class="chat-history">
+        <ng-container *ngFor="let item of chatHistory">
+            <div class="messages" [ngClass]="{ 'blue': item.from === 'user', 'green': item.from === 'bot' }">
+                <i class="fa" [ngClass]="{'fa-user-circle': item.from === 'user', 'fa-graduation-cap': item.from === 'bot'}"></i>
+                <span class="responses" [innerHTML]="formatText(item.message)"></span>
+            </div>
+        </ng-container>
+
+        <!-- Alert en cas d'absence de similitude -->
+        <ng-container *ngIf="!loading && noSimilarityAlert">
+            <div class="alert alert-warning" role="alert">
+                Aucune similitude avec les questions existantes.
+            </div>
+        </ng-container>
+
+        <!-- Spinner de chargement -->
+        <ng-container *ngIf="loading">
+            <div class="loading-container">
+                <div class="loading-line"></div>
+                <div class="loading-line"></div>
+                <div class="loading-line"></div>
+                <div class="loading-line"></div>
+                <div class="loading-line"></div>
+            </div>
+        </ng-container>
+    </main>
+    
+    <footer class="chat-input">
+        <input type="text" id="message-input" (keyup.enter)="sendData()" placeholder="Type your message ..." [(ngModel)]="prompt" [disabled]="loading" autocomplete="off">
+        <button id="send-button" (click)="sendData()" [disabled]="loading">Send</button>
+    </footer>
+  </div>
+</body>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <mat-card *ngFor="let doctor of doctors" class="example-card">
+            <mat-card-header>
+               
+                <mat-card-title>{{ doctor.name }} {{ doctor.lastname }}</mat-card-title>
+               
+                
+                   <!-- <img mat-card-avatar [src]="doctor.profileImageUrl1" alt="Profile Image">-->
+                
+            </mat-card-header>
+            <img mat-card-image [src]="doctor.profileImageUrl1" alt="Profile Image">
+            <mat-card-content>
+                <p>  <strong>About Doctor:</strong> {{ doctor.aboutme}} <br>
+                    <strong>Telephone:</strong> {{ doctor.telephone }} <br>
+                    <strong>Email:</strong> {{ doctor.email }} <br>
+                    <strong>City:</strong> {{ doctor.city }} <br>
+                    <strong>Country:</strong> {{ doctor.country }} <br>
+                    <strong>Rue:</strong> {{ doctor.rue }} <br>
+                    <strong>Code Postal:</strong> {{ doctor.codePostal }} <br>
+                   
+                  
+                    <!-- Ajoutez d'autres détails ici -->
+                </p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <a class="btn btn-primary" [routerLink]="['/calender/',doctor.id]" >Appointment</a>
+            </mat-card-actions>
+        </mat-card>
+        <mat-paginator [length]="100"
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                       aria-label="Select page" align="end">
+        </mat-paginator>
+    </div>
+</div>

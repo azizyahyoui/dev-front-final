@@ -1,0 +1,405 @@
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.publication {
+    background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+}
+
+.publication-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    margin-right: 10px;
+}
+
+.publication-info {
+    flex-grow: 1;
+}
+
+.publication-content {
+    margin-bottom: 10px;
+}
+
+.publication-actions {
+    margin-bottom: 10px;
+}
+
+.comments {
+    padding-left: 50px; /* Indentation pour les commentaires */
+      
+        
+    }
+
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.comment .user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    margin-right: 10px;
+}
+
+.comment .comment-info {
+    margin-right: 10px;
+}
+
+.comment-text {
+    margin-top: 5px;
+}
+
+.comment-content {
+    flex-grow: 1; /* Permet au contenu du commentaire de s'étendre pour remplir l'espace restant */
+}
+
+.publication-header {
+    background-color: #f0f0f0; /* Couleur de fond pour l'en-tête */
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.user-name {
+    color: #333333; /* Couleur du nom de l'utilisateur */
+    font-weight: bold;
+}
+
+.publication-actions button {
+    background-color: #89aace; /* Couleur de fond pour les boutons */
+    border: none;
+    color: #ffffff; /* Couleur du texte pour les boutons */
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.publication-actions button:hover {
+    background-color: #0057b3e1; /* Couleur de fond pour les boutons au survol */
+}
+
+.publication .admin-avatar {
+    background-color: #6F8BA4; /* Couleur pour l'avatar de l'administrateur */
+}
+
+.publication-actions .update-button {
+    text-decoration: none; /* Désactiver le soulignement */
+    background-color: #8a2be2; /* Modifier la couleur en violet */
+}
+
+.publication-actions .update-button:hover {
+    background-color: #9400d3; /* Modifier la couleur au survol */
+}
+
+.publication-actions button a {
+    color: #ffffff; /* Couleur du texte */
+    text-decoration: none; /* Suppression du soulignement */
+}
+
+.publication-actions button a:hover {
+    text-decoration: none; /* Suppression du soulignement au survol */
+}
+
+
+.user-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-date .user-name {
+    margin-right: 10px;
+    font-size: 18px; /* Plus grand */
+    font-weight: bold; /* En gras */
+}
+
+.publication-actions {
+    border-bottom: 1px solid #ccc; /* Bordure en bas */
+    padding-bottom: 10px; /* Espace entre la bordure et le contenu */
+}
+
+
+.publication-content {
+    margin-top: 10px; /* Marge en haut du contenu */
+    color: rgb(0, 0, 0)
+}
+
+.update-button {
+    background-color: #f1f1f1d0;
+}
+
+.publication-container {
+    background-color: 	#d7e9f0;
+    width: calc(100% - 40px); /* 40px de moins que la largeur totale */
+    margin: 20px; /* Espace autour du bloc */
+    padding: 20px; /* Espace à l'intérieur du bloc */
+    border-bottom: 1px solid #cccccc; /* Ajoute une ligne claire en bas de chaque publication */
+    padding-bottom: 20px; /* Ajoute un espacement en bas */
+}
+
+.add-publication-button {
+    background-color: #89aace;
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-publication-button:hover {
+    background-color: #0057b3e1; /* Couleur de fond pour les boutons au survol */
+}
+
+.add-publication-button i {
+    margin-right: 5px; /* Ajouter un espace entre l'icône et le texte */
+}
+
+
+/* Style pour les inputs */
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Style pour les labels */
+  .modal-content label {
+    color: #223a66;
+  }
+  .modal-body {
+    color: #223a66;
+  }
+  /* Style pour le bouton "Créer Publication" */
+  .modal-content .btn-primary {
+    background-color: #6F8BA4;
+    border-color: #6F8BA4;
+    color: #fff;
+  }
+
+  /* Hover state pour le bouton "Créer Publication" */
+  .modal-content .btn-primary:hover {
+    background-color: #57748e;
+    border-color: #57748e;
+  }
+
+
+  .comments {
+    padding-left: 0; /* Supprimer l'indentation */
+    margin-top: 20px; /* Ajouter de l'espace au-dessus des commentaires */
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Ajouter de l'espace entre les commentaires */
+}
+
+.comment .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    margin-right: 10px;
+}
+
+.comment .comment-info {
+    margin-right: 10px;
+}
+
+.comment-text {
+    margin-top: 5px;
+    background-color: #f9f9f9; /* Ajouter une couleur de fond pour chaque commentaire */
+    padding: 10px; /* Ajouter un espace intérieur */
+    border-radius: 5px; /* Ajouter une bordure arrondie */
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.add-comment-form {
+    margin-top: 20px; /* Ajouter de l'espace au-dessus du formulaire */
+}
+
+.add-comment-form input[type="text"] {
+    width: calc(100% - 100px); /* Ajuster la largeur de l'input */
+    margin-right: 10px; /* Ajouter de l'espace à droite de l'input */
+}
+
+.add-comment-form button {
+    background-color: #6F8BA4; /* Couleur de fond pour le bouton */
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-comment-form button:hover {
+    background-color: #57748e; /* Couleur de fond au survol */
+}
+
+.send-icon {
+    font-size: px; /* Taille plus grande */
+    color: #007bff; /* Couleur bleue par défaut */
+    cursor: pointer; /* Curseur de souris lors du survol */
+    margin-left: 10px; /* Marge à gauche pour séparer l'icône du champ de texte */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+
+
+
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-buttons {
+  margin-left: 10px; /* Adjust spacing between comment text and buttons */
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+
+
+/* Nouveau style pour la section des commentaires */
+.comments {
+    margin-top: 20px; /* Espace au-dessus des commentaires */
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Espace entre les commentaires */
+}
+
+.comment .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    margin-right: 10px;
+}
+
+.comment .comment-info {
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex-grow: 1;
+    background-color: #f9f9f9; /* Couleur de fond pour chaque commentaire */
+    padding: 10px; /* Espacement interne */
+    border-radius: 5px; /* Bordure arrondie */
+}
+
+.comment-buttons {
+    margin-left: 10px; /* Espace entre le texte du commentaire et les boutons */
+}
+
+.comment-buttons button {
+    background-color: #89aace;; /* Couleur de fond pour les boutons */
+    border: none;
+    color: #ffffff; /* Couleur du texte */
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-buttons button:hover {
+    background-color: #57748e; /* Couleur de fond au survol */
+}
+
+.fa-solid.fa-caret-right:hover {
+    color: #007bff; /* Couleur bleue au survol de la flèche */
+}
+
+.fa-solid.fa-caret-right {
+    font-size: 24px; /* Taille de police de l'icône */
+}
+
+.fa-solid.fa-caret-right:hover {
+    font-size: 26px; /* Taille de police de l'icône au survol */
+}
+
+
+.comment-input-container {
+    position: relative;
+}
+
+.comment-input-container input {
+    padding-right: 30px; /* Assure un espace à droite pour l'icône */
+}
+
+.comment-input-container .fa-solid.fa-caret-right {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajustez la position horizontale de l'icône selon vos préférences */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.fixed-button {
+    position: fixed;
+    top: 50%; /* Placer le bouton au milieu de la hauteur de la page */
+    right: 20px; /* Distance du bouton par rapport à la droite de la page */
+    transform: translateY(-50%); /* Ajuster la position verticale pour centrer le bouton */
+    z-index: 999; /* Assurer que le bouton est au-dessus de tous les autres éléments */
+}
+
+/*.search-container {
+    background-image: url('/assets/BackOffice/addiction.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 100px; /* Ajoute de l'espace en haut */
+    /*padding-bottom: 100px;/*
+  }*/
+  
+
+  .fixed-button-container {
+    position: fixed;
+    top: 20px; /* Ajustez la distance par rapport au haut de la page selon vos besoins */
+    right: 20px; /* Ajustez la distance par rapport à la droite de la page selon vos besoins */
+    z-index: 999; /* Assurez-vous que le bouton est au-dessus de tous les autres éléments */
+}

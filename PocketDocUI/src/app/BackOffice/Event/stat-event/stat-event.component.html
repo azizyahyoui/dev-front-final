@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 main-panel">
+      <div class="content-wrapper">
+        <div class="dashboard">
+
+          <div class="card mb-5">
+            <div class="container">
+            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          
+            <div *ngIf="averageInscriptions !== undefined" class="text-center mb-3"> <!-- Ajout de la classe text-center pour centrer le contenu -->
+              <p class="average-inscriptions">Average Inscriptions per Event: {{ averageInscriptions }}</p> <!-- Ajout de la classe CSS personnalisée average-inscriptions -->
+            </div>
+            </div>
+          </div>
+
+          <div class="card mb-5">
+            <div class="container">
+            <div class="row">
+              <div class="text-center mb-3">
+              <p class="searchEvent">Search Event</p>
+            </div>
+              <div class="col-md-6">
+                <label for="start">Start date:</label>
+                <input type="date" id="start" [(ngModel)]="startDate" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="end">End date:</label>
+                <input type="date" id="end" [(ngModel)]="endDate" class="form-control">
+              </div>
+            </div>
+            
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <button class="btn btn-primary" (click)="fetchEvents()">display</button>
+              </div>
+            </div>
+            
+            <div *ngIf="events && events.length > 0" class="mt-3">
+              <h2>Event between {{ startDate | date }} and {{ endDate | date }}</h2>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Capacity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of events">
+                      <td>{{ event.title }}</td>
+                      <td>{{ event.description }}</td>
+                      <td>{{ event.date | date }}</td>
+                      <td>{{ event.location }}</td>
+                      <td>{{ event.capacity }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div *ngIf="events && events.length === 0" class="mt-3">
+              <p class="alert alert-warning">No events found between these dates</p>
+            </div>
+          
+            <div *ngIf="events && events.length > 0" class="mt-3">
+              <button class="btn btn-secondary" (click)="cancelDisplay()">Hide</button>
+            </div>
+          </div>
+          </div>
+          
+
+          <div class="card mb-5">
+            <div class="container">          
+              <!-- Autres éléments... -->
+            
+            <!-- Bouton pour afficher les événements modifiés -->
+            <div>
+              <button class="btn btn-primary" (click)="showModifiedEvents()">Show modified events</button>
+            </div>
+          
+            <!-- Tableau pour afficher les événements modifiés -->
+            <div *ngIf="eventsModified && eventsModified.length > 0" class="mt-3">
+              <h2>Modified events</h2>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Capacity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of eventsModified">
+                      <td>{{ event.title }}</td>
+                      <td>{{ event.description }}</td>
+                      <td>{{ event.date | date }}</td>
+                      <td>{{ event.location }}</td>
+                      <td>{{ event.capacity }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Message si aucun événement modifié n'est trouvé -->
+            <div *ngIf="eventsModified && eventsModified.length === 0">
+              <p>No modified events found</p>
+            </div>
+          
+              <!-- Bouton pour annuler l'affichage des événements modifiés -->
+              <div *ngIf="eventsModified && eventsModified.length > 0">
+                <button class="btn btn-secondary" (click)="hideModifiedEvents()">Hide</button>
+              </div>
+          
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

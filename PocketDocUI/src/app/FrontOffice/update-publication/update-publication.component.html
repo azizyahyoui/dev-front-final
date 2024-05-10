@@ -1,0 +1,36 @@
+
+<!--<button class="update-button" routerLink="">Liste des publications </button>
+
+<div class="container">
+    
+    <h2>Modifier Publication</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="updatePublication()">
+        <div>
+            <label for="sujet">Sujet:</label>
+            <input type="text" id="sujet" formControlName="sujet">
+        </div>
+        <div>
+            <label for="contenuPub">Contenu:</label>
+            <input type="text" id="contenuPub" formControlName="contenuPub">
+        </div>
+      
+        <button type="submit">Modifier une publication</button>
+    </form>
+</div>-->
+
+<!-- update-publication.component.html -->
+
+<form [formGroup]="updateForm" (ngSubmit)="updatePublication()">
+    <div>
+      <label for="sujet">Sujet:</label>
+      <input type="text" id="sujet" formControlName="sujet">
+    </div>
+    <div>
+      <label for="contenuPub">Contenu:</label>
+      <input type="text" id="contenuPub" formControlName="contenuPub">
+    </div>
+    <div>
+      <button type="submit">Enregistrer les modifications</button>
+    </div>
+  </form>
+  

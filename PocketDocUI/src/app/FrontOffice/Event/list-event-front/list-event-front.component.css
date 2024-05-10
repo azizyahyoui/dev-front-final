@@ -1,0 +1,78 @@
+  /* Style de la carte */
+  .custom-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style de l'image de la carte */
+  .custom-card-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Style du corps de la carte */
+  .custom-card-body {
+    padding: 20px;
+  }
+
+  /* Style du titre de la carte */
+  .custom-card-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Style du texte de la carte */
+  .custom-card-text {
+    margin-bottom: 15px;
+  }
+
+  /* Style des boutons de la carte */
+  .custom-card-button {
+    display: inline-block;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .custom-card-button:hover {
+    background-color: #0056b3;
+  }
+
+  #maCarte { height: 450px; width: 350px; margin-left: 70px; }
+  
+  .pagination-buttons {
+    max-width: 200px; /* Réglez la largeur maximale selon vos préférences */
+    margin: 0 auto; /* Centrez horizontalement le contenu */
+  }
+  
+  .custom-card-button {
+    margin-bottom: 20px; /* Ajoute de l'espace en dessous du bouton */
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-select {
+    flex: 1; /* Le champ de sélection prendra autant d'espace que possible */
+    margin-right: 10px; /* Espacement entre le champ de sélection et le champ de recherche */
+  }
+  
+  .custom-input {
+    flex: 1; /* Le champ de recherche prendra autant d'espace que possible */
+    margin-left: 10px; /* Espacement entre le champ de recherche et le champ de sélection */
+  }
+  

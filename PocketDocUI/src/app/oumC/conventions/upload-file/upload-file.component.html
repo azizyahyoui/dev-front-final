@@ -1,0 +1,28 @@
+<style>
+    .notification-icon {
+      position: relative;
+      display: inline-block;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 20px;
+      padding: 2px 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff; /* Nouvelle couleur bleue */
+      border-radius: 50%;
+    }
+
+    .notification-icon i {
+      font-size: 24px; /* Taille de l'icône */
+      color: #007bff; /* Nouvelle couleur bleue */
+    }
+    </style>
+<div class="file-upload-container">
+    <input type="file" (change)="onFileSelected($event)" required>
+    
+</div>

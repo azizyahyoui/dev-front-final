@@ -1,0 +1,17 @@
+.chat-header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f0f0f0;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.question-space {
+    font-style: italic;
+    margin-top: 10px;
+    color: #666;
+}

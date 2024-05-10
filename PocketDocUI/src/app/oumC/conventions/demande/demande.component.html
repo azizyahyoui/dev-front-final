@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/FrontOffice/images/favicon.ico" />
+
+    <!-- Bootstrap.min CSS -->
+    <link rel="stylesheet" href="/assets/FrontOffice/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/assets/FrontOffice/plugins/icofont/icofont.min.css">
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="/assets/FrontOffice/plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/plugins/slick-carousel/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/assets/FrontOffice/css/style.css">
+    <style>
+        /* Animation de défilement horizontal pour l'arrière-plan */
+        @keyframes scroll {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 0;
+            }
+        }
+        /* Styles supplémentaires... */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success upload-btn" (click)="openModal()">Upload your demand</button>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Convention Demand with ESPRIT</h4>
+                    <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your Convention has been expired !!</p>
+                    <app-upload-file></app-upload-file>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="assignAndUpload()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h1>Check all your demands</h1>
+        <app-all-files></app-all-files>
+        
+        
+    </div>
+
+    <router-outlet></router-outlet>
+</div>
+</body>
+</html>

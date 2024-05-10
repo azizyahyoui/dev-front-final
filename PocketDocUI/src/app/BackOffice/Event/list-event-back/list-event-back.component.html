@@ -1,0 +1,86 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-4"> <!-- Divise la ligne en quatre colonnes -->
+      <mat-form-field>
+        <mat-label>Search by</mat-label>
+        <mat-select [(ngModel)]="selectedCategory">
+          <mat-option value="title">Title</mat-option>
+          <mat-option value="description">Description</mat-option>
+          <mat-option value="date">Date</mat-option>
+          <mat-option value="location">Emplacement</mat-option>
+          <mat-option value="capacity">Capacité</mat-option>
+          <mat-option value="placedispo">Place disponible</mat-option>
+          <!-- Ajoutez d'autres options pour d'autres catégories si nécessaire -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-8"> <!-- Divise la ligne en huit colonnes -->
+      <mat-form-field class="full-width"> <!-- Ajoutez la classe full-width pour étendre le champ de saisie -->
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="col-md-12">
+      <div class="table-responsive table-container">
+        <table class="table table-striped" mat-table [dataSource]="dataSource" matSort style="width: 80%;">
+          <!-- Définition des colonnes -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+            <td mat-cell *matCellDef="let item"> {{ item?.title || 'Titre non disponible' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td mat-cell *matCellDef="let item"> {{ item?.description || 'Description non spécifiée' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+            <td mat-cell *matCellDef="let item"> 
+               {{ item?.date ? (item.date | date:'dd-MM-yyyy') : 'Date non spécifiée' }} 
+            </td>
+           </ng-container>
+
+          <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Emplacement </th>
+            <td mat-cell *matCellDef="let item"> {{ item?.location || 'Emplacement non spécifié' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="capacity">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Capacité </th>
+            <td mat-cell *matCellDef="let item"> {{ item?.capacity || 'Capacité non spécifiée' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nbPlaceAvailable">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Places disponibles </th>
+            <td mat-cell *matCellDef="let item"> {{ item?.nbPlaceAvailable }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let item">
+              <button (click)="modifier(item.id)" class="btn btn-info mr-2">Edit</button>
+              <button (click)="delete(item.id)" class="btn btn-danger">Delete</button>
+            </td>
+          </ng-container>
+
+          <!-- Ligne et en-tête -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let item; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+      <!-- Bouton d'ajout -->
+  <div class="row mt-3"> <!-- Ajout de la classe mt-3 pour la marge en haut -->
+    <div class="col-md-12">
+      <a routerLink="/admin/ajouter" class="btn btn-success mr-2">Add</a> <!-- Ajoutez la classe btn-sm pour une taille plus petite -->
+    </div>
+  </div>
+  <!-- Pagination -->
+  <mat-card-footer>
+
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+
+</mat-card-footer>
+
+</div>

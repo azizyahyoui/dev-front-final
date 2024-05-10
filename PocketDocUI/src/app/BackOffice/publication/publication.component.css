@@ -1,0 +1,244 @@
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.publication-container {
+  background-color: 	#e3ebee;
+  width: calc(100% - 40px); /* 40px de moins que la largeur totale */
+  margin: 20px; /* Espace autour du bloc */
+  padding: 20px; /* Espace à l'intérieur du bloc */
+  border-bottom: 1px solid #cccccc; /* Ajoute une ligne claire en bas de chaque publication */
+  padding-bottom: 20px; /* Ajoute un espacement en bas */
+}
+
+.publication {
+  background-color: #ffffff;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+}
+
+.publication-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #cccccc;
+  margin-right: 10px;
+}
+
+.publication-info {
+  flex-grow: 1;
+}
+
+.publication-content {
+  margin-bottom: 10px;
+}
+
+.publication-actions {
+  margin-bottom: 10px;
+}
+
+.comments {
+  padding-left: 50px; /* Indentation pour les commentaires */
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.comment .user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #cccccc;
+  margin-right: 10px;
+}
+
+.comment .comment-info {
+  margin-right: 10px;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+.comment-content {
+  flex-grow: 1; /* Permet au contenu du commentaire de s'étendre pour remplir l'espace restant */
+}
+
+.publication-header {
+  background-color: #f0f0f0; /* Couleur de fond pour l'en-tête */
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.user-name {
+  color: #333333; /* Couleur du nom de l'utilisateur */
+  font-weight: bold;
+}
+
+.publication-actions button {
+  background-color: #89aace; /* Couleur de fond pour les boutons */
+  border: none;
+  color: #ffffff; /* Couleur du texte pour les boutons */
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.publication-actions button:hover {
+  background-color: #0057b3e1; /* Couleur de fond pour les boutons au survol */
+}
+
+.publication .admin-avatar {
+  background-color: #67b6eb8c; /* Couleur pour l'avatar de l'administrateur */
+}
+
+.publication-actions .update-button {
+  text-decoration: none; /* Désactiver le soulignement */
+  background-color: #8a2be2; /* Modifier la couleur en violet */
+}
+
+.publication-actions .update-button:hover {
+  background-color: #9400d3; /* Modifier la couleur au survol */
+}
+
+.publication-actions button a {
+  color: #ffffff; /* Couleur du texte */
+  text-decoration: none; /* Suppression du soulignement */
+}
+
+.publication-actions button a:hover {
+  text-decoration: none; /* Suppression du soulignement au survol */
+}
+
+
+.user-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-date .user-name {
+  margin-right: 10px;
+  font-size: 18px; /* Plus grand */
+  font-weight: bold; /* En gras */
+}
+
+.publication-actions {
+  border-bottom: 1px solid #ccc; /* Bordure en bas */
+  padding-bottom: 10px; /* Espace entre la bordure et le contenu */
+}
+
+
+.publication-content {
+  margin-top: 10px; /* Marge en haut du contenu */
+}
+
+.update-button {
+  background-color: #f1f1f1d0;
+}
+
+.btn-lg {
+  transition: all 0.3s ease;
+}
+
+.comments {
+  padding-left: 0; /* Supprimer l'indentation */
+  margin-top: 20px; /* Ajouter de l'espace au-dessus des commentaires */
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px; /* Ajouter de l'espace entre les commentaires */
+}
+
+.comment .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #cccccc;
+  margin-right: 10px;
+}
+
+.comment .comment-info {
+  margin-right: 10px;
+  display: flex;
+  align-items: center; 
+}
+
+.comment-text {
+  margin-top: 5px;
+  background-color: #f9f9f9; /* Ajouter une couleur de fond pour chaque commentaire */
+  padding: 10px; /* Ajouter un espace intérieur */
+  border-radius: 5px; /* Ajouter une bordure arrondie */
+}
+
+.comment-content {
+  flex-grow: 1;
+}
+
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-buttons {
+  margin-left: 10px; /* Adjust spacing between comment text and buttons */
+}
+
+.comment-item {
+  display: flex;
+  align-items: center; /* Aligner les éléments verticalement */
+}
+
+
+
+
+
+.search-container .btn-outline-secondary {
+  background-color: #89aace; /* Couleur de fond pour les boutons */
+  border: none;
+  color: #ffffff; /* Couleur du texte pour les boutons */
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.search-container .btn-outline-secondary:hover {
+  background-color: #0057b3e1; /* Couleur de fond pour les boutons au survol */
+}
+
+
+
+.search-container {
+ 
+  padding-top: 20px; /* Ajoute de l'espace en haut */
+ 
+}

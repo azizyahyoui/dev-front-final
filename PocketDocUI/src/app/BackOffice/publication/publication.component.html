@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+    <!-- Partie à gauche -->
+    
+      
+
+      <!-- Liste des publications -->
+      <div class="publication-container">
+        <div class="publication-container search-container">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search for a publication topic.." [(ngModel)]="searchTerm">
+          <button class="btn btn-outline-secondary" type="button" (click)="searchPublications()">
+              <i class="fas fa-search"></i> 
+          </button>
+             
+        </div>
+              <!-- Boutons de tri -->
+              <div class="d-flex justify-content-center align-items-center mb-3">
+                <button class="btn btn-outline-secondary btn-sm" (click)="toggleButtons('all')">
+                  <i class="fas fa-list"></i> Sort
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByDate()">
+                  <i class="far fa-calendar-alt"></i> by date
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByPopularity()">
+                  <i class="fas fa-fire"></i> by popularity
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" *ngIf="showOtherButtons" (click)="getPublicationsOrderedByNumberOfResponses()">
+                  <i class="far fa-comments"></i> by responses
+                </button>
+              </div>
+
+            </div>
+
+
+
+
+
+        <div class="publication" *ngFor="let publication of publications">
+          <div class="publication-header">
+            <div class="user-avatar admin-avatar">
+              <!--  affichage l'avatar de l'administrateur -->
+            </div>
+            <div class="publication-info">
+              <div class="user-date">
+                <h5 class="user-name">Username</h5>
+                <p class="publication-date">{{ formatDate(publication.datePub) }}</p>
+                <div class="publication-actions">
+                <button class="btn btn-outline-secondary btn-sm" (click)="deletePublication(publication.idPub)">
+                  <i class="fas fa-trash"></i>
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="publication-content">
+            <h4 class="publication-title">{{publication.sujet}}</h4>
+            <p class="publication-text">{{publication.contenuPub}}</p>
+          </div>
+          <!--<div class="publication-actions">-->
+            <!--<div class="btn-group">-->
+              <!--<button class="btn btn-outline-secondary btn-sm" (click)="deletePublication(publication.idPub)">-->
+                <!--<i class="fas fa-trash"></i>-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
+
+           <!-- Ligne entre publications et commentaires -->
+        <hr>
+          <div class="comments">
+            <h6>Comments :</h6>
+            <ul class="comment-list">
+              <li *ngFor="let commentaire of publication.commentaires">
+                <div class="comment-content" >
+                  {{ commentaire.contenuCom}}
+                  <br>
+                  <p style="color: #0e1014">{{commentaire.dateCom ? formatDates(commentaire.dateCom) : "" }}</p>
+                </div>
+                <div class="comment-buttons" >
+                  <!--data-bs-toggle="modal" data-bs-target="#deleteCommentModal"-->
+                  <button class="btn btn-outline-secondary btn-sm" (click)="openDeleteComment(commentaire)" >
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Partie à droite -->
+    <div class="col-md-4">
+      <!-- Contenu à ajouter plus tard -->
+    </div>
+  </div>
+</div>
+
+
+
+<!--<div class="pagination-container">
+  <pagination-controls (pageChange)="pageChanged($event)" class="pagination"></pagination-controls>
+</div>-->
